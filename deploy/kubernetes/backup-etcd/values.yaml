@@ -1,0 +1,4 @@
+name: backup-etcd
+image: ihoegen/backup-etcd
+tag: 1.0.0
+frequency: "0 * * * *"

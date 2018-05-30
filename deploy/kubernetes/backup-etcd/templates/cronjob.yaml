@@ -1,0 +1,31 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Values.name }}
+spec:
+  schedule: {{ .Values.frequency | quote }}
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          annotations:
+            iam.amazonaws.com/role: {{ .Values.iam }}
+        spec:
+          containers:
+            - name: {{ .Values.name }} 
+              imagePullPolicy: "Always"
+              image: {{ .Values.image }}:{{ .Values.tag }}
+              args:
+              - aws
+              env:
+                - name: AWS_REGION
+                  value: us-west-2
+              volumeMounts:
+              - name: ssl-certs
+                mountPath: /etc/ssl/certs/ca-certificates.crt
+                readOnly: true
+          volumes:
+            - name: ssl-certs
+              hostPath:
+                path: "/etc/ssl/certs/ca-certificates.crt"
+          restartPolicy: OnFailure
