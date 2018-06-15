@@ -1,6 +1,7 @@
 # Backup ETCD
 This project is designed to backup ETCD instances, and can be run on a Kubernetes cluster, via the command line, or as a lambda.
 
+This specifcally works on clusters created using Kops
 ## Usage
 
 `./backup-etcd [cloudProvider]`
