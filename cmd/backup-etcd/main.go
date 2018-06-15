@@ -7,9 +7,9 @@ import (
 )
 
 var cloudProvider = ""
-var cloudFlag = flaggy.AddPositionalValue(&cloudProvider, "cloudProvider", 1, true, "The cloud provider that is being used")
 
 func main() {
+	flaggy.AddPositionalValue(&cloudProvider, "cloudProvider", 1, true, "The cloud provider that is being used")
 	flaggy.Parse()
 	switch cloudProvider {
 	case "aws":
