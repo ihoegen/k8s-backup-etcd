@@ -1,4 +1,8 @@
 name: backup-etcd
-image: ihoegen/backup-etcd
-tag: 1.0.0
+image:
+  repo: ihoegen/backup-etcd
+  tag: 1.0.0
+  imagePullPolicy: "Always"
 frequency: "0 * * * *"
+iam:
+  role: ""

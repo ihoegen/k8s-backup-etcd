@@ -9,12 +9,12 @@ spec:
       template:
         metadata:
           annotations:
-            iam.amazonaws.com/role: {{ .Values.iam }}
+            iam.amazonaws.com/role: {{ .Values.iam.role }}
         spec:
           containers:
             - name: {{ .Values.name }} 
-              imagePullPolicy: "Always"
-              image: {{ .Values.image }}:{{ .Values.tag }}
+              imagePullPolicy: {{ .Values.image.imagePullPolicy }}
+              image: {{ .Values.image.repo }}:{{ .Values.repo.tag }}
               args:
               - aws
               env:

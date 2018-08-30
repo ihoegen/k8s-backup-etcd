@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/iStreamplanet/backup-etcd/pkg/cloudproviders/aws"
+	"github.com/ihoegen/backup-etcd/pkg/providers/aws"
 )
 
 func main() {

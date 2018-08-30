@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/iStreamplanet/backup-etcd/pkg/cloudproviders/aws"
+	"github.com/ihoegen/backup-etcd/pkg/providers/aws"
 )
 
 func backupAWS() {
