@@ -17,7 +17,7 @@ func handleLambda(ctx context.Context) (string, error) {
 	var p providers.Provider
 	err := p.RotateSnapshots()
 	if err != nil {
-		log.Info(err)
+		log.Println(err)
 	}
 	volumes, err := p.GetVolumes()
 	if err != nil {
@@ -27,7 +27,5 @@ func handleLambda(ctx context.Context) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	if snapshots != nil {
-		return fmt.Sprintf("Snapshots taken: %v", snapshots), nil
-	}
+	return fmt.Sprintf("Snapshots taken: %v", snapshots), nil
 }
