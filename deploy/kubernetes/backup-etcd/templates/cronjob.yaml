@@ -17,9 +17,10 @@ spec:
               image: {{ .Values.image.repo }}:{{ .Values.repo.tag }}
               args:
               - aws
+              - "--snapshots-saved={{ .Values.snapshotsSaved }}"
               env:
                 - name: AWS_REGION
-                  value: us-west-2
+                  value: {{ .Values.region }}
               volumeMounts:
               - name: ssl-certs
                 mountPath: /etc/ssl/certs/ca-certificates.crt
